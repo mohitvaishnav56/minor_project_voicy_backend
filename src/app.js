@@ -12,5 +12,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));//ur encoding ke liye use kiya jaata hai eg: space -> %20 or something
 app.use(express.static("public"));
 
+import userRouter from "./routes/user.routes.js"
+
+
+
+
+app.use("/api/v1/users", userRouter);
 
 export default app;
