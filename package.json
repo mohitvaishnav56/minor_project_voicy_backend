@@ -21,9 +21,11 @@
   },
   "homepage": "https://github.com/mohitvaishnav56/minor_project_voicy_backend#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "mongoose": "^9.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.11",
+    "prettier": "^3.7.4"
   }
 }
