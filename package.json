@@ -21,6 +21,7 @@
   "homepage": "https://github.com/mohitvaishnav56/minor_project_voicy_backend#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "cloudinary": "^2.8.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
