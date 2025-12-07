@@ -3,6 +3,8 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { User } from "../models/user.model.js";
 import { access_Token, refresh_Token } from "../utils/jwt.js";
+import { uploadOnImageKit, deleteFromImageKit } from "../services/imagkit.service.js"
+
 
 const options = {
     httpOnly: true,
@@ -28,13 +30,16 @@ const registerUser = asyncHandler(async (req, res) => {
 
     if (existedUser) throw new ApiError(409, "user already exists");
 
-    // if (!avatar) throw new ApiError(400, "avatar file is required");
+    const avatar = await uploadOnImageKit(req?.files?.avatar[0]);
+
+    if (!avatar) throw new ApiError(400, "avatar file is required");
 
     const user = await User.create({
         fullName,
         email: email.toLowerCase(),
         password,
         userName: userName.toLowerCase(),
+        avatar: avatar.url,
     });
 
     const accessToken = access_Token({ userId: user._id });

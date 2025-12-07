@@ -1,11 +1,14 @@
 import ImageKit from "../utils/imagkit.js";
 
+const folderPath = "prono/avatars/";
+
 export const uploadOnImageKit = async (localFilePath) => {
     return promise = new Promise((resolve, reject) => {
         ImageKit.upload(
             {
                 file: localFilePath.buffer,
                 fileName: Date.now().toString(),
+                folder: folderPath,
             },
             function (error, result) {  
                 if (error) {
